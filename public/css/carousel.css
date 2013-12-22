@@ -1,0 +1,38 @@
+#c-carousel {
+    padding: 0;
+    margin: 0;
+}
+#c-carousel {
+    position: relative;
+}
+#c-carousel * {
+    font-family: Arial, Geneva, SunSans-Regular, sans-serif;
+    font-size: 14px;
+    color: #333;
+    line-height: 22px;
+}
+
+#wrapper {
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+    width: 100%;
+    height: 50%;
+    margin-top: -1px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+}
+#carousel {
+    margin-top: -100px;
+}
+#carousel div {
+    text-align: center;
+    width: 200px;
+    height: 200px;
+    float: left;
+    position: relative;
+    border:4px solid #FFF;
+}
+#carousel div img {
+    border: none;
+}

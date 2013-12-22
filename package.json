@@ -1,0 +1,13 @@
+{
+  "name": "2Minutes2Midnight",
+  "version": "1.0.0",
+  "devDependencies": {
+    "grunt": "*",
+    "grunt-contrib-uglify": "*"
+  },
+  "dependencies": {
+    "underscore.string":"*",
+    "express": "*",
+    "ejs": "*"
+  }
+}

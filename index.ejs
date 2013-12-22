@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/div/html4/strict.dtd">
+<html ng-app>
+    <head>
+        <title>2Minutes2Midnight</title>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- CSS -->
+        <link href="public/css/main.css" rel="stylesheet" media="screen">
+        <link href="public/css/carousel.css" rel="stylesheet" media="screen">
+        <!-- Required JS -->
+        <script type="text/javascript" language="javascript" src="public/js/jquery.min.js"></script>
+        <script type="text/javascript" language="javascript" src="public/js/jquery.carouFredSel.min.js"></script>
+        <script type="text/javascript" language="javascript" src="public/js/angular.min.js">
+        </script>
+        <!-- Project JS -->
+        <script type="text/javascript" language="javascript" src="public/js/2m2m.min.js">
+        </script>
+    </head>
+
+	<body>
+        <div class="centerscreen">
+            <div id="c-carousel">
+                <div id="carousel">
+                    <% for (var i=0; i<photos.length; i++) {%>
+                        <div>
+                        <img src="photos/<%= photos[i] %>" alt="img" width="200" height="200"/>
+                        </div>
+                    <% } %>
+                </div>
+            </div>
+            <div ng-controller="CountdownCtrl">
+                {{counter}}
+            </div>
+        </div>
+
+    </body>
+</html>
