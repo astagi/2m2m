@@ -10,6 +10,7 @@
     "underscore.string":"*",
     "express": "*",
     "ejs": "*",
-    "imagemagick": "*"
+    "imagemagick": "*",
+    "leapjs": "*"
   }
 }

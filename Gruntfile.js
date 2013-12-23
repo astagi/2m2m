@@ -17,7 +17,7 @@ module.exports = function(grunt) {
       },
       build: {
         files: {
-          'public/js/2m2m.min.js': ['public/js/main.js', 'public/js/2m2mcarousel.js']
+          'public/js/2m2m.min.js': ['public/js/main.js', 'public/js/2m2mleap.js', 'public/js/2m2mcarousel.js']
         }
       }
     }
