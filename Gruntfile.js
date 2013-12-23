@@ -2,6 +2,14 @@ module.exports = function(grunt) {
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+    exec: {
+      resize_images: {
+        command: 'mogrify -path photos/thumbs -resize 200x200^ \
+          -gravity center -extent 200x200 photos/*.*',
+        stdout: false,
+        stderr: false
+      }
+    },
     uglify: {
       options: {
         mangle: false,
@@ -16,5 +24,7 @@ module.exports = function(grunt) {
   });
  
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-exec');
   grunt.registerTask('default', ['uglify']);
+  grunt.registerTask('resize', ['exec']);
 };

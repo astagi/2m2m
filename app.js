@@ -1,4 +1,5 @@
 var express = require('express');
+var im = require('imagemagick');
 var app = express();
 
 var pub = __dirname;
@@ -10,9 +11,10 @@ app.set('view engine', 'ejs');
 
 app.get('/', function(req, res){
     var fs = require('fs');
-    fs.readdir('photos', function (err, files) {
-        res.render('index', {photos: files});
-    });
+    var images = [];
+    fs.readdir('photos/thumbs', function (err, files) {
+        res.render('index', {photos: files}); 
+    });          
 });
 
 app.listen(3000);

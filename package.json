@@ -3,11 +3,13 @@
   "version": "1.0.0",
   "devDependencies": {
     "grunt": "*",
+    "grunt-exec": "*",
     "grunt-contrib-uglify": "*"
   },
   "dependencies": {
     "underscore.string":"*",
     "express": "*",
-    "ejs": "*"
+    "ejs": "*",
+    "imagemagick": "*"
   }
 }
