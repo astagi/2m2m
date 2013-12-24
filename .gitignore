@@ -2,4 +2,6 @@
 node_modules
 npm-debug.log
 photos/*.jpg
+photos/*.jpeg
+photos/*.png
 photos/thumbs/
