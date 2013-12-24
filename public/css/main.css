@@ -11,6 +11,10 @@ body {
     width: 100%;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 80px;
+    transition: background-color 5s linear;
+    -moz-transition: background-color 5s linear;
+    -o-transition: background-color 5s linear;
+    -webkit-transition: background-color 5s linear;
 }
 
 .centerscreen {

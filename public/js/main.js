@@ -19,6 +19,9 @@ function formatTime($days, $hours, $minutes, $seconds) {
     return $result;
 }
 
+var bgColors = ['#FF0000', '#FFFFFF', '#33CCFF'];
+var currentColor = 0;
+
 function CountdownCtrl($scope,$timeout) {
     $scope.onTimeout = function(){
         var target = new Date(2014, 0, 0, 24, 0, 0, 0);
@@ -33,6 +36,10 @@ function CountdownCtrl($scope,$timeout) {
         minutes = parseInt(seconds_left / 60);
         seconds = parseInt(seconds_left % 60);
         $scope.counter = formatTime(days, hours, minutes, seconds);
+        if (seconds == 0) {
+            $('body').css( "background-color", bgColors[currentColor]);
+            currentColor = (currentColor + 1) % bgColors.length;
+        }
         mytimeout = $timeout($scope.onTimeout,1000);
     }
     var mytimeout = $timeout($scope.onTimeout,0);        

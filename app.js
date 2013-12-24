@@ -12,10 +12,10 @@ app.set('view engine', 'ejs');
 var allowedFormats = ['png', 'jpeg', 'jpg'];
 
 function isImage(element) {
-    image = false;
     for (var i = 0 ; i < allowedFormats.length ; i++)
-        image = element.match(allowedFormats[i]+"$");
-    return image;
+        if(element.match(allowedFormats[i]+"$"))
+            return true;
+    return false;
 }
 
 app.get('/photos/list', function(req, res){
