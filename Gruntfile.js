@@ -4,8 +4,8 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     exec: {
       resize_images: {
-        command: 'mogrify -path photos/thumbs -resize 200x200^ \
-          -gravity center -extent 200x200 photos/*.*',
+        command: 'mogrify -path photos/thumbs -resize 400x400^ \
+          -gravity center -extent 400x400 photos/*.*',
         stdout: false,
         stderr: false
       }

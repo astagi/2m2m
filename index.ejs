@@ -11,26 +11,29 @@
         <!-- Required JS -->
         <script src="public/js/jquery.min.js"></script>
         <script src="public/js/jquery.carouFredSel.min.js"></script>
-        <script type="text/javascript" language="javascript" src="public/js/angular.min.js">
+        <script src="public/js/angular.min.js">
         </script>
         <script src="./node_modules/leapjs/leap.min.js"></script>
         <!-- Project JS -->
         <script src="public/js/2m2m.min.js"></script>
-
     </head>
 
 	<body>
         <div class="centerscreen">
-            <div id="c-carousel">
-                <div id="carousel">
-                    <% for (var i=0; i<photos.length; i++) {%>
-                        <div>
-                        <img src="/photos/thumbs/<%= photos[i] %>" alt="img"/>
+            <center>
+                <div id="c-carousel">
+                    <div id="wrapper">
+                        <div id="carousel">
+                            <% for (var i=0; i<photos.length; i++) {%>
+                                <div>
+                                <img id="img<%= i %>" src="/photos/thumbs/<%= photos[i] %>" alt="img"/>
+                                </div>
+                            <% } %>
                         </div>
-                    <% } %>
+                    </div>
                 </div>
-            </div>
-            <div ng-controller="CountdownCtrl">
+            </center>
+            <div ng-controller="CountdownCtrl" style="padding: 10px;">
                 {{counter}}
             </div>
         </div>
