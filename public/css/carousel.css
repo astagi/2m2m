@@ -1,8 +1,10 @@
 #c-carousel {
+    padding: 0;
+    margin: 0;
+        display: inline;
 
-}
-#c-carousel {
     min-height: 300px;
+
 }
 #c-carousel * {
     font-family: Arial, Geneva, SunSans-Regular, sans-serif;
@@ -15,6 +17,8 @@
     width: 400px;
     height: 450px;
     padding: 30px;
+    margin: 0 auto; 
+    overflow: hidden;
 }
 #wrapper h3 {
     font-size: 20px;

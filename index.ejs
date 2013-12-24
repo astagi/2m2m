@@ -20,19 +20,17 @@
 
 	<body>
         <div class="centerscreen">
-            <center>
+            <div id="wrapper">
                 <div id="c-carousel">
-                    <div id="wrapper">
-                        <div id="carousel">
-                            <% for (var i=0; i<photos.length; i++) {%>
-                                <div>
-                                <img id="img<%= i %>" src="/photos/thumbs/<%= photos[i] %>" alt="img"/>
-                                </div>
-                            <% } %>
-                        </div>
+                    <div id="carousel">
+                        <% for (var i=0; i<photos.length; i++) {%>
+                            <div>
+                            <img id="img<%= i %>" src="/photos/thumbs/<%= photos[i] %>" alt="img"/>
+                            </div>
+                        <% } %>
                     </div>
                 </div>
-            </center>
+            </div>
             <div ng-controller="CountdownCtrl" style="padding: 10px;">
                 {{counter}}
             </div>
