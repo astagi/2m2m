@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>2Minutes2Midnight</title>
+        <!-- CSS -->
+        <link href="/public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Required JS -->
+        <script src="/public/js/jquery.min.js"></script>
+        <script src="/public/js/angular.min.js"></script>
+        <!-- Project JS -->
+        <script>
+            function remainingCharsCtrl($scope) {
+                $scope.getRemainingChars = function(){
+                    if (!$scope.message)
+                        return 140;
+                    return 140 - $scope.message.length;
+                };
+            }
+        </script>
+    </head>
+
+	<body>
+        <div class="container" ng-controller="remainingCharsCtrl">
+            <div class="row">
+                <div class="col-sm-offset-2 col-xs-12 col-md-8">
+                    <h1>Don't be serious <small>send a message!</small></h1>
+                    <p>Send a message to your friends using this form. <b>{{getRemainingChars()}}</b> characters remaining.</p>
+                    <form role="form" action="/messages/upload" method="post">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="message" name="message" placeholder="Enter your message" ng-model="message" ng-trim='false'></input>
+                        </div>
+                        <button type="submit" class="btn btn-default">Send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

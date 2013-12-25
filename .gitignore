@@ -5,3 +5,4 @@ photos/*.jpg
 photos/*.jpeg
 photos/*.png
 photos/thumbs/
+*.nosql

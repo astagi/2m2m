@@ -1,12 +1,14 @@
 var express = require('express');
 var im = require('imagemagick');
 var app = express();
+var nosql = require('nosql').load('messages.nosql');
 
-var pub = __dirname;
-app.use(app.router);
-app.use(express.static(pub));
+app.use(express.static(__dirname ));
 app.use(express.errorHandler());
-app.set('views', pub);
+app.use(express.bodyParser());
+app.use(express.methodOverride());
+app.use(app.router);
+app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
 var allowedFormats = ['png', 'jpeg', 'jpg'];
@@ -32,6 +34,31 @@ app.get('/', function(req, res){
     fs.readdir('photos/thumbs', function (err, files) {
         res.render('index', {photos: files.filter(isImage)}); 
     });          
+});
+
+app.get('/messages/list', function(req, res){
+    var callback = function(selected) {
+        var messages = [];
+        selected.forEach(function(o) {
+            messages.push(o.message);
+        });
+        res.send({ messages: messages });
+    };
+    var map = function(doc) {
+        return doc;
+    };
+    nosql.all(map, callback);          
+});
+
+app.get('/messages/new', function(req, res){
+    res.render('newmessage');
+});
+
+app.post('/messages/upload', function(req, res){
+    var callback = function(count) {
+        res.send({ 'status': 'OK' });
+    };
+    nosql.insert({ message: req.body.message}, callback);
 });
 
 app.listen(3000);
