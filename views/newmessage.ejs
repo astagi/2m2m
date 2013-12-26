@@ -10,15 +10,6 @@
         <script src="/public/js/jquery.min.js"></script>
         <script src="/public/js/angular.min.js"></script>
         <!-- Project JS -->
-        <script>
-            function remainingCharsCtrl($scope) {
-                $scope.getRemainingChars = function(){
-                    if (!$scope.message)
-                        return 140;
-                    return 140 - $scope.message.length;
-                };
-            }
-        </script>
     </head>
 
 	<body>
@@ -27,14 +18,36 @@
                 <div class="col-sm-offset-2 col-xs-12 col-md-8">
                     <h1>Don't be serious <small>send a message!</small></h1>
                     <p>Send a message to your friends using this form. <b>{{getRemainingChars()}}</b> characters remaining.</p>
-                    <form role="form" action="/messages/upload" method="post">
+                    <form role="form" action="/messages/upload" method="post" id="sendMessageForm">
                         <div class="form-group">
-                            <input type="text" class="form-control" id="message" name="message" placeholder="Enter your message" ng-model="message" ng-trim='false'></input>
+                            <input type="text" class="form-control" name="message" placeholder="Enter your message" ng-model="message" ng-trim='false' maxlength="140"></input>
                         </div>
                         <button type="submit" class="btn btn-default">Send</button>
                     </form>
                 </div>
             </div>
         </div>
+        <div id="result"></div>
+        <script>
+            function remainingCharsCtrl($scope) {
+                $scope.getRemainingChars = function(){
+                    if (!$scope.message)
+                        return 140;
+                    return 140 - $scope.message.length;
+                };
+            }
+
+            $( "#sendMessageForm" ).submit(function( event ) {
+                event.preventDefault();
+                var $form = $( this ),
+                    mess = $form.find( "input[name='message']" ).val(),
+                    url = $form.attr( "action" );
+                $form.attr("disabled", true);
+                var posting = $.post( url, { message: mess } );
+                posting.done(function( data ) {
+                    $form.attr("disabled", false);
+                });
+            });
+        </script>
     </body>
 </html>

@@ -46,3 +46,12 @@ function CountdownCtrl($scope,$timeout) {
     }
     var mytimeout = $timeout($scope.onTimeout,0);        
 }
+
+var messages = [];
+
+setInterval(function(){
+    $.get( "messages/list", "application/json", function( data ) {
+        messages = data.messages;
+        console.log(messages);
+    }, "json" );
+}, 10000);
