@@ -46,8 +46,13 @@
                 $form.attr("disabled", true);
                 var posting = $.post( url, { message: mess } );
                 posting.done(function( data ) {
+                    $("#sendMessageResult").show().html("Message sent!").delay(2000).fadeOut(400);
+                });
+                posting.fail(function( data ) {
+                    $("#sendMessageResult").show().html("An error occurred! Please try again!").delay(2000).fadeOut(400);
+                });
+                posting.always(function( data ) {
                     $form.attr("disabled", false);
-                    $("#sendMessageResult").html("Message sent!").delay(2000).fadeOut(400);
                 });
             });
         </script>
