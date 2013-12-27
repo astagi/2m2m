@@ -4,7 +4,8 @@
   "devDependencies": {
     "grunt": "*",
     "grunt-exec": "*",
-    "grunt-contrib-uglify": "*"
+    "grunt-contrib-uglify": "*",
+    "grunt-contrib-clean": "*"
   },
   "dependencies": {
     "underscore.string":"*",
