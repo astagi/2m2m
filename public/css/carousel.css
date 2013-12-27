@@ -30,3 +30,17 @@
     width: 400px;
     height: 400px;
 }
+
+.messagecontainer {
+    width: 400px;
+    height: 60px;
+    display: table;
+}
+
+.messagecontainer p {
+    display: table-cell;
+    vertical-align: middle;
+    color: black;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 30px;
+}

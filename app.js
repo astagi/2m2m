@@ -61,4 +61,8 @@ app.post('/messages/upload', function(req, res){
     nosql.insert({ message: req.body.message}, callback);
 });
 
-app.listen(3000);
+server = require('http').createServer(app);
+
+server.listen(3000, function(err) {
+    console.log(err, server.address());
+});

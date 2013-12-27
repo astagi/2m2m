@@ -48,10 +48,14 @@ function CountdownCtrl($scope,$timeout) {
 }
 
 var messages = [];
+var currentMessage = 0;
 
 setInterval(function(){
     $.get( "messages/list", "application/json", function( data ) {
         messages = data.messages;
         console.log(messages);
+        //display current message
+        currentMessage = (currentMessage + 1) % messages.length;
+        $("#currentMessage p").hide().html(messages[currentMessage]).fadeIn('slow');
     }, "json" );
-}, 10000);
+}, 3000);

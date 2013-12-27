@@ -6,6 +6,7 @@
         <title>2Minutes2Midnight</title>
         <!-- CSS -->
         <link href="/public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/public/css/newmessage.css" rel="stylesheet">
         <!-- Required JS -->
         <script src="/public/js/jquery.min.js"></script>
         <script src="/public/js/angular.min.js"></script>
@@ -16,13 +17,13 @@
         <div class="container" ng-controller="remainingCharsCtrl">
             <div class="row">
                 <div class="col-sm-offset-2 col-xs-12 col-md-8">
-                    <h1>Don't be serious <small>send a message!</small></h1>
+                    <h1>Don't be serious</h1>
                     <p>Send a message to your friends using this form. <b>{{getRemainingChars()}}</b> characters remaining.</p>
                     <form role="form" action="/messages/upload" method="post" id="sendMessageForm">
                         <div class="form-group">
-                            <input type="text" class="form-control" name="message" placeholder="Enter your message" ng-model="message" ng-trim='false' maxlength="140"></input>
+                            <input type="text" class="form-control" name="message" placeholder="Enter your message" ng-model="message" ng-trim='false' maxlength="40"></input>
                         </div>
-                        <button type="submit" class="btn btn-default">Send</button>
+                        <button type="submit" class="btn btn-default">Send</button> <span id="sendMessageResult"></span>
                     </form>
                 </div>
             </div>
@@ -32,12 +33,12 @@
             function remainingCharsCtrl($scope) {
                 $scope.getRemainingChars = function(){
                     if (!$scope.message)
-                        return 140;
-                    return 140 - $scope.message.length;
+                        return 40;
+                    return 40 - $scope.message.length;
                 };
             }
 
-            $( "#sendMessageForm" ).submit(function( event ) {
+            $("#sendMessageForm").submit(function( event ) {
                 event.preventDefault();
                 var $form = $( this ),
                     mess = $form.find( "input[name='message']" ).val(),
@@ -46,6 +47,7 @@
                 var posting = $.post( url, { message: mess } );
                 posting.done(function( data ) {
                     $form.attr("disabled", false);
+                    $("#sendMessageResult").html("Message sent!").delay(2000).fadeOut(400);
                 });
             });
         </script>
