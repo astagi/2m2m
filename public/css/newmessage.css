@@ -4,4 +4,8 @@ h1, span, p {
 
 body {
     background: #33ccff;
+    transition: background-color 5s linear;
+    -moz-transition: background-color 5s linear;
+    -o-transition: background-color 5s linear;
+    -webkit-transition: background-color 5s linear;
 }

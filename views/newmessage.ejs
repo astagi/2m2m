@@ -11,6 +11,7 @@
         <script src="/public/js/jquery.min.js"></script>
         <script src="/public/js/angular.min.js"></script>
         <!-- Project JS -->
+        <script src="/public/js/2m2mnewmessage.min.js"></script>
     </head>
 
 	<body>
@@ -30,31 +31,7 @@
         </div>
         <div id="result"></div>
         <script>
-            function remainingCharsCtrl($scope) {
-                $scope.getRemainingChars = function(){
-                    if (!$scope.message)
-                        return 40;
-                    return 40 - $scope.message.length;
-                };
-            }
-
-            $("#sendMessageForm").submit(function( event ) {
-                event.preventDefault();
-                var $form = $( this ),
-                    mess = $form.find( "input[name='message']" ).val(),
-                    url = $form.attr( "action" );
-                $form.attr("disabled", true);
-                var posting = $.post( url, { message: mess } );
-                posting.done(function( data ) {
-                    $("#sendMessageResult").show().html("Message sent!").delay(2000).fadeOut(400);
-                });
-                posting.fail(function( data ) {
-                    $("#sendMessageResult").show().html("An error occurred! Please try again!").delay(2000).fadeOut(400);
-                });
-                posting.always(function( data ) {
-                    $form.attr("disabled", false);
-                });
-            });
+            startAmbience(6000);
         </script>
     </body>
 </html>
