@@ -1,4 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/div/html4/strict.dtd">
+<!DOCTYPE html>
 <html ng-app>
     <head>
         <title>2Minutes2Midnight</title>
@@ -11,11 +11,11 @@
         <!-- Required JS -->
         <script src="/public/js/jquery.min.js"></script>
         <script src="/public/js/jquery.carouFredSel.min.js"></script>
-        <script src="/public/js/angular.min.js">
-        </script>
+        <script src="/public/js/angular.min.js"></script>
         <script src="/node_modules/leapjs/leap.min.js"></script>
         <!-- Project JS -->
         <script src="/public/js/2m2m.min.js"></script>
+
     </head>
 
 	<body>
@@ -23,11 +23,11 @@
             <div id="wrapper">
                 <div id="c-carousel">
                     <div id="carousel">
-                        <% for (var i=0; i<photos.length; i++) {%>
+                        <%for (var i=0; i<photos.length; i++) {%>
                             <div>
                             <img id="img<%= i %>" src="/photos/thumbs/<%= photos[i] %>" alt="img"/>
                             </div>
-                        <% } %>
+                        <%} %>
                     </div>
                 </div>
                 <div class="messagecontainer" id="currentMessage">

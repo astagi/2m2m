@@ -19,11 +19,6 @@ function formatTime($days, $hours, $minutes, $seconds) {
     return $result;
 }
 
-var bgColors = ['#9f2719', '#ffab24', '#417938','#76c73c', 
-'#1d9a70', '#26477d','#3cbbe6', '#51395b', '#a61e2c',
-'#ec1c18', '#fc596c','#fe7515', '#f0b706'];
-var currentColor = 0;
-
 function CountdownCtrl($scope,$timeout) {
     $scope.onTimeout = function(){
         var target = new Date(2014, 0, 0, 24, 0, 0, 0);
