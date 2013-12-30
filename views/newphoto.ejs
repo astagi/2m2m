@@ -9,27 +9,25 @@
         <link href="/public/css/page.css" rel="stylesheet">
         <!-- Required JS -->
         <script src="/public/js/jquery.min.js"></script>
-        <script src="/public/js/angular.min.js"></script>
- 
     </head>
 
 	<body>
-        <div class="container" ng-controller="remainingCharsCtrl">
+        <div class="container">
             <div class="row">
                 <div class="col-sm-offset-2 col-xs-12 col-md-8">
-                    <h1>Don't be serious</h1>
-                    <p>Send a message to your friends using this form. <b>{{getRemainingChars()}}</b> characters remaining.</p>
-                    <form role="form" action="/messages/upload" method="post" id="sendMessageForm">
+                    <h1>Send a photo</h1>
+                    <p>subtitle <b>a photo</b> sub.</p>
+                    <form role="form" action="/photos/upload" method="post" id="sendPhotoForm" enctype="multipart/form-data">
                         <div class="form-group">
-                            <input type="text" class="form-control" name="message" placeholder="Enter your message" ng-model="message" ng-trim='false' maxlength="40"></input>
+                            <input type="file" class="form-control" name="photo" placeholder="Enter your photo"></input>
                         </div>
-                        <button type="submit" class="btn btn-default">Send</button> <span id="sendMessageResult"></span>
+                        <button type="submit" class="btn btn-default">Send</button> <span id="sendPhotoResult"></span>
                     </form>
                 </div>
             </div>
         </div>
         <div id="result"></div>
-        <script src="/public/js/2m2mnewmessage.min.js"></script>
+        <script src="/public/js/2m2mnewphoto.min.js"></script>
         <script>
             startAmbience(6000);
         </script>

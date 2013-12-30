@@ -20,6 +20,14 @@ function isImage(element) {
     return false;
 }
 
+app.get('/', function(req, res){
+    var fs = require('fs');
+    var images = [];
+    fs.readdir('photos/thumbs', function (err, files) {
+        res.render('index', {photos: files.filter(isImage)}); 
+    });          
+});
+
 app.get('/photos/list', function(req, res){
     var fs = require('fs');
     var images = [];
@@ -28,12 +36,12 @@ app.get('/photos/list', function(req, res){
     });          
 });
 
-app.get('/', function(req, res){
-    var fs = require('fs');
-    var images = [];
-    fs.readdir('photos/thumbs', function (err, files) {
-        res.render('index', {photos: files.filter(isImage)}); 
-    });          
+app.get('/photos/upload', function(req, res){
+    res.render('newphoto');
+});
+
+app.post('/photos/upload', function(req, res){
+    res.send({ 'status': 'OK' })
 });
 
 app.get('/messages/list', function(req, res){
@@ -50,7 +58,7 @@ app.get('/messages/list', function(req, res){
     nosql.all(map, callback);          
 });
 
-app.get('/messages/new', function(req, res){
+app.get('/messages/upload', function(req, res){
     res.render('newmessage');
 });
 
