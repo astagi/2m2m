@@ -1,5 +1,6 @@
 var express = require('express');
 var im = require('imagemagick');
+var fs = require('fs');
 var app = express();
 var nosql = require('nosql').load('messages.nosql');
 
@@ -29,7 +30,6 @@ app.get('/', function(req, res){
 });
 
 app.get('/photos/list', function(req, res){
-    var fs = require('fs');
     var images = [];
     fs.readdir('photos/thumbs', function (err, files) {
         res.send({ photos: files.filter(isImage) });
@@ -41,7 +41,29 @@ app.get('/photos/upload', function(req, res){
 });
 
 app.post('/photos/upload', function(req, res){
-    res.send({ 'status': 'OK' })
+    var filePath = req.files['photo']['path']; //originalFilename
+    var fileName = req.files['photo']['originalFilename']; //originalFilename
+    fs.readFile(filePath, function (err, data) {
+        var newPath = __dirname + "/photos/" + fileName;
+        var thumbPath = __dirname + "/photos/thumbs/" + fileName;
+        fs.writeFile(newPath, data, function (err) {
+            var im = require("imagemagick");
+            im.resize({
+                srcPath : newPath,
+                dstPath : thumbPath,
+                strip : false,
+                width : 400,
+                height : "400^",
+                customArgs: [
+                     "-gravity", "center"
+                    ,"-extent", "400x400"
+                    ]
+            }, function(err, stdout, stderr)
+            {
+                res.send({ 'status': 'OK' });
+            });
+        });
+    });
 });
 
 app.get('/messages/list', function(req, res){
