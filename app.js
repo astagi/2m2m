@@ -93,6 +93,10 @@ app.post('/messages/upload', function(req, res){
 
 server = require('http').createServer(app);
 
-server.listen(3000, function(err) {
+var args = process.argv.slice(2);
+var port = 3000;
+if (args.length != 0)
+    port = args[0];
+server.listen(port, function(err) {
     console.log(err, server.address());
 });
