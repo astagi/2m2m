@@ -37,6 +37,15 @@ node app.js
 ```
 Now you can attach your PC or RaspberryPi to your TV and open the browser to http://localhost:3000/ entering "presentation mode".
 
+The other guys can upload photos going to
+```
+http://yourserverip:3000/photos/upload
+```
+and send a message at:
+```
+http://yourserverip:3000/messages/upload
+```
+
 How to contribute
 -----------------
 This is my first app using Node.js, the first time I use AngularJS and Grunt. Be patient and contribute :)
