@@ -21,7 +21,7 @@ function formatTime($days, $hours, $minutes, $seconds) {
 
 function CountdownCtrl($scope,$timeout) {
     $scope.onTimeout = function(){
-        var target = new Date(2014, 0, 0, 24, 0, 0, 0);
+        var target = new Date(2015, 0, 0, 24, 0, 0, 0);
         //var target = new Date(2013, 11, 31, 4, 51, 0, 0);
         var now = new Date();
         var seconds_left = (target - now) / 1000;
