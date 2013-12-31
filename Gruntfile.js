@@ -5,7 +5,7 @@ module.exports = function(grunt) {
     clean: ["messages.nosql"],
     exec: {
       resize_images: {
-        command: 'mkdir photos/thumbs&&mogrify -path photos/thumbs -resize 400x400^ \
+        command: 'mkdir -p photos/thumbs&&mogrify -path photos/thumbs -resize 400x400^ \
           -gravity center -extent 400x400 photos/*.*',
         stdout: false,
         stderr: false
