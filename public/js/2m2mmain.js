@@ -22,13 +22,16 @@ function formatTime($days, $hours, $minutes, $seconds) {
 function CountdownCtrl($scope,$timeout) {
     $scope.onTimeout = function(){
         var target = new Date(2014, 0, 0, 24, 0, 0, 0);
-        //TEST TARGET var target = new Date(2013, 11, 31, 3, 33, 0, 0);
+        //var target = new Date(2013, 11, 31, 4, 51, 0, 0);
         var now = new Date();
         var seconds_left = (target - now) / 1000;
         if(seconds_left <= 0) {
             $("#counterSpace").hide();
             $scope.counter = "Happy New Year";
             $("#counterSpace").fadeIn(400);
+            $("#wrapper").hide();
+            $scope.counter = "Happy New Year";
+            $("#peterWishYouHappyNewYear").css("height", "").hide().css('visibility', 'visible').fadeIn(400);
             return;
         }
         days = parseInt(seconds_left / 86400);
